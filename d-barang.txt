@@ -1,0 +1,7 @@
+
+	INSERT INTO barang
+    (kod_barang, nama_barang, kod_jenama, harga, ciri, gambar, nokp_staff)
+    VALUES
+    ('1' , 'iPhone X' , 'IP' , '1000' , '64' , 'Apple_Iphone_X.png' , '123'),
+    ('2' , 'Samsung Galaxy A13' , 'SM1' , '500' , '32' , 'Samsung_Galaxy_A13.png' , '123')
+;

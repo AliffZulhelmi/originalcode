@@ -1,0 +1,58 @@
+
+CREATE TABLE staff (
+    nokp_staff VARCHAR(12),
+    nama_staff VARCHAR(60),
+    katalaluan_staff VARCHAR(30),
+    PRIMARY KEY (nokp_staff)
+);
+CREATE TABLE pembeli (
+	nokp_pembeli VARCHAR(12),
+	nama_pembeli VARCHAR(60),
+    katalaluan_pembeli VARCHAR(30),
+	PRIMARY KEY (nokp_pembeli)
+);
+CREATE TABLE jenama (
+	kod_jenama VARCHAR(10),
+	jenama_barang VARCHAR(60),
+	PRIMARY KEY (kod_jenama)
+);
+CREATE TABLE barang (
+    kod_barang INT(11) AUTO_INCREMENT,
+    nama_barang VARCHAR(30),
+    kod_jenama VARCHAR(10),
+    harga DOUBLE(7,2),
+    ciri TEXT,
+    gambar VARCHAR(30),
+    nokp_staff VARCHAR(12),
+    
+    PRIMARY KEY (kod_barang),
+    
+    FOREIGN KEY (nokp_staff)
+    REFERENCES staff (nokp_staff)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+    
+    FOREIGN KEY (kod_jenama)
+    REFERENCES jenama (kod_jenama)
+    ON DELETE CASCADE ON UPDATE CASCADE
+);
+	INSERT INTO jenama
+    (kod_jenama, jenama_barang)
+    VALUES
+    ('IP' , 'IPHONE'),
+    ('NOK1' , 'NOKIA'),
+    ('OP1' , 'OPPO'),
+    ('SM1' , 'SAMSUNG')
+;
+    INSERT INTO pembeli
+    (nokp_pembeli, nama_pembeli, katalaluan_pembeli)
+    VALUES
+    ('1234' , 'UMAR FAWWAZ' , '1234'),
+    ('2345' , 'SAMAD BIN MAT' , '2345')
+;
+	INSERT INTO staff
+    (nokp_staff, nama_staff, katalaluan_staff)
+    VALUES
+    ('124' , 'AMIR MAT ALI' , '124'),
+    ('234' , 'AZMAN BIN MAN' , '234'),
+    ('123' , 'ADMIN' , '123')
+;
